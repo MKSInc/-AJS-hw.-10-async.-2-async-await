@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/c89tgks4m4m60h56?svg=true)](https://ci.appveyor.com/project/MKSInc/ajs-hw-10-async-2-async-await)
+
 # 10. Домашнее задание к лекции «Promises, async/await»
 
 **Важно**: каждая задача выполняется в виде отдельного проекта с собственным GitHub репозиторием.
