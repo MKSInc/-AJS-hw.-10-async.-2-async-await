@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import read from './read';
 import json from './json';
 import GameSaving from './GameSaving';

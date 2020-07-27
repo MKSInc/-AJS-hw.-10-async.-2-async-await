@@ -11,13 +11,13 @@ beforeEach(() => {
 });
 
 test('The load() method must return a promise in a state \'fulfilled\'', async () => {
-  read.mockReturnValue(new Promise((resolve, rejected) => resolve({})));
-  json.mockReturnValue(new Promise((resolve, rejected) => resolve('{}')));
+  read.mockReturnValue(new Promise((resolve) => resolve({})));
+  json.mockReturnValue(new Promise((resolve) => resolve('{}')));
   expect(GameSavingLoader.load()).resolves.toEqual({ id: undefined, created: undefined, undefined });
 });
 
 test('The load() method must return a promise in a state \'rejected\'', () => {
-  read.mockReturnValue(new Promise((resolve, rejected) => { throw new Error('Some error'); }));
+  read.mockReturnValue(new Promise(() => { throw new Error('Some error'); }));
   json.mockReturnValue(async () => '{}');
   expect(GameSavingLoader.load()).rejects.toThrow('Some error');
 });
