@@ -1,23 +1,19 @@
 /* eslint-disable max-len */
 import GameSavingLoader from '../GameSavingLoader';
-import read from '../read';
-import json from '../json';
 
-jest.mock('../read');
-jest.mock('../json');
+describe('Test GameSavingLoader.load() method with async/await', () => {
+  const saving = {
+    id: 9,
+    created: 1546300800,
+    userInfo: {
+      id: 1,
+      name: 'Hitman',
+      level: 10,
+      points: 2000,
+    },
+  };
 
-beforeEach(() => {
-  jest.resetAllMocks();
-});
-
-test('The load() method must return a promise in a state \'fulfilled\'', async () => {
-  read.mockReturnValue(new Promise((resolve) => resolve({})));
-  json.mockReturnValue(new Promise((resolve) => resolve('{}')));
-  expect(GameSavingLoader.load()).resolves.toEqual({ id: undefined, created: undefined, undefined });
-});
-
-test('The load() method must return a promise in a state \'rejected\'', () => {
-  read.mockReturnValue(new Promise(() => { throw new Error('Some error'); }));
-  json.mockReturnValue(async () => '{}');
-  expect(GameSavingLoader.load()).rejects.toThrow('Some error');
+  test('№1.1: should return correct object', async () => {
+    await expect(GameSavingLoader.load()).resolves.toEqual(saving);
+  });
 });

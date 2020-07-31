@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 export default function read() {
-  // eslint-disable-next-line no-unused-vars
   return new Promise((resolve, reject) => {
     // эмуляция чтения файла
     setTimeout(() => {

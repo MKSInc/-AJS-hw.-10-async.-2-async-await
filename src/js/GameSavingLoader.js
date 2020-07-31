@@ -4,9 +4,9 @@ import json from './json';
 import GameSaving from './GameSaving';
 
 export default class GameSavingLoader {
-  static load() {
-    return read()
-      .then((result) => { console.log(result); json(result); })
-      .then((result) => { console.log(result); return new GameSaving(JSON.parse(result)); });
+  static async load() {
+    const arrayBufer = await read();
+    const jsonData = await json(arrayBufer);
+    return new GameSaving(JSON.parse(jsonData));
   }
 }
